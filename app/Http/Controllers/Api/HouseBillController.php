@@ -8,7 +8,7 @@ use App\Http\Requests\StoreHouseRequest;
 use App\Http\Requests\UpdateHouseRequest;
 use App\Http\Resources\HouseResource;
 
-class HouseController extends Controller
+class HouseBillController extends Controller
 {
     public function index()
     {

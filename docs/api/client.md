@@ -7,7 +7,8 @@ For a client-public facing API for a web app, where users can manage their house
 - **POST `/api/auth/register`**: Register a new user. Requires user details like name, email, and password.
 - **POST `/api/auth/login`**: Authenticate a user and return an access token. Requires email and password.
 - **POST `/api/auth/logout`**: Log out a user by invalidating their access token.
-- **GET `/api/auth/me`**: Get the authenticated user's profile using the access token.
+- **GET `/api/auth/profile`**: Get the authenticated user's profile using the access token.
+- **PUT `/api/auth/profile`**: Update the authenticated user's profile using the access token.
 
 ### House Management
 
