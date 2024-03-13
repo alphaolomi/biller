@@ -6,62 +6,43 @@ use App\Http\Controllers\Controller;
 use App\Models\Attachment;
 use App\Http\Requests\StoreAttachmentRequest;
 use App\Http\Requests\UpdateAttachmentRequest;
+use App\Http\Resources\AttachmentResource;
+use App\Models\Bill;
 
-class AttachmentController extends Controller
+class BillAttachmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Bill $bill)
     {
-        //
+        $attachments = $bill->attachments()->paginate(10);
+
+        return AttachmentResource::collection($attachments);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(StoreAttachmentRequest $request, Bill $bill)
     {
-        //
+        $attachment = $bill->attachments()->create($request->all());
+
+        return new AttachmentResource($attachment);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreAttachmentRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Attachment $attachment)
     {
-        //
+        return new AttachmentResource($attachment);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Attachment $attachment)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateAttachmentRequest $request, Attachment $attachment)
     {
-        //
+        $attachment->update($request->all());
+
+        return new AttachmentResource($attachment);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Attachment $attachment)
     {
-        //
+        $attachment->delete();
+
+        return response()->noContent();
     }
 }

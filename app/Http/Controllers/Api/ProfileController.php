@@ -7,26 +7,23 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    //
-
-
-    //  Verb	URI	Action	Route Name
-    // GET	/profile	show	profile.show
-    // GET	/profile/edit	edit	profile.edit
-    // PUT/PATCH	/profile	update	profile.update
 
     public function show()
     {
-        //
+        return response()->json(auth()->user());
     }
 
-    public function edit()
+    public function update(Request $request)
     {
-        //
-    }
+        $validated = $request->validate([
+            'name' => 'nullable|string',
+        ]);
 
-    public function update()
-    {
-        //
+        /** @var \App\Models\User $user */
+        $user = auth()->user();
+
+        $user->update($validated);
+
+        return response()->json($user);
     }
 }

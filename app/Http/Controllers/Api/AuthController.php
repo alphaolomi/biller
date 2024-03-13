@@ -16,12 +16,8 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-            //  device_name or token_id
             'device_name' => 'nullable|string',
-            'token_id' => 'nullable|string'
         ]);
-
-
 
         $user = User::where('email', $request->email)->first();
 
@@ -31,7 +27,7 @@ class AuthController extends Controller
             ]);
         }
 
-        $tokenName = $request->device_name ?? $request->token_id ?? 'token';
+        $tokenName = $request->device_name ?? 'token';
         $defaultAbilities = ['*'];
         $expiresAt = now()->addWeek();
 
@@ -53,7 +49,7 @@ class AuthController extends Controller
     {
         $validated = $request->validate(['token_id' => 'nullable|string']);
 
-        if ($validated['token_id']) {
+        if (isset($validated['token_id'])) {
             // Revoke the token that was used to authenticate the current request...
             $request->user()->tokens()->where('id', $validated['token_id'])->delete();
         } else {

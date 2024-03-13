@@ -3,39 +3,64 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BillResource;
+use Illuminate\Http\Request;
 use App\Models\House;
-use App\Http\Requests\StoreHouseRequest;
-use App\Http\Requests\UpdateHouseRequest;
-use App\Http\Resources\HouseResource;
 
 class HouseBillController extends Controller
 {
-    public function index()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(House $house)
     {
-        $houses = House::paginate(10);
-        return HouseResource::collection($houses);
+        $bill = $house->bills()->paginate(10);
+
+        return new BillResource($bill);
     }
 
-    public function store(StoreHouseRequest $request)
+
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(House $house, Request $request)
     {
-        $house = House::create($request->validated());
-        return new HouseResource($house);
+        $bill = $house->bills()->create($request->all());
+
+        return new BillResource($bill);
     }
 
-    public function show(House $house)
+    /**
+     * Display the specified resource.
+     */
+    public function show(House $house, string $id)
     {
-        return new HouseResource($house);
+        $bill = $house->bills()->findOrFail($id);
+
+        return new BillResource($bill);
     }
 
-    public function update(UpdateHouseRequest $request, House $house)
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, House $house, string $id)
     {
-        $house->update($request->validated());
-        return new HouseResource($house);
+        $bill = $house->bills()->findOrFail($id);
+        $bill->update($request->all());
+
+        return new BillResource($bill);
     }
 
-    public function destroy(House $house)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(House $house, string $id)
     {
-        $house->delete();
+        $bill = $house->bills()->findOrFail($id);
+        $bill->delete();
+
         return response()->noContent();
     }
 }
