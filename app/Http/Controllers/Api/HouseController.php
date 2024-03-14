@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreHouseRequest;
-use App\Http\Requests\UpdateHouseRequest;
+use App\Http\Requests\Api\StoreHouseRequest;
+use App\Http\Requests\Api\UpdateHouseRequest;
 use App\Http\Resources\HouseResource;
 use App\Models\House;
 

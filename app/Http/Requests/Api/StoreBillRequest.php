@@ -1,18 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreBillRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return false;
-    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -22,7 +15,13 @@ class StoreBillRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'house_id' => 'required|exists:houses,id',
+            'description' => 'required|string',
+            'amount' => 'required|numeric',
+            'currency' => 'required|string|size:3',
+            'due_date' => 'required|date',
+            'type' => 'required|string|in:rent,electricity,water,gas,phone,internet,other',
+            'shared' => 'required|boolean',
         ];
     }
 }

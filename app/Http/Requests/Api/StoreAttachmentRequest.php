@@ -1,18 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreAttachmentRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return false;
-    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -22,7 +15,8 @@ class StoreAttachmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'bill_id' => 'required|exists:bills,id',
+            'file' => 'required|file',
         ];
     }
 }
