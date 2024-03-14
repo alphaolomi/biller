@@ -28,3 +28,20 @@ test('it can create a bill', function () {
     expect($bill->type)->toBe('electricity');
     expect($bill->shared)->toBeFalse();
 });
+
+
+
+// relationships
+
+test('it can have a house', function () {
+    $bill = Bill::factory()->create();
+
+
+    // house
+    expect($bill->house)->toBeInstanceOf(House::class);
+    expect($bill->house())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\BelongsTo::class);
+
+    // attachments
+    expect($bill->attachments())->toBeInstanceOf(\Illuminate\Database\Eloquent\Relations\HasMany::class);
+    expect($bill->attachments->count())->toBe(0);
+});

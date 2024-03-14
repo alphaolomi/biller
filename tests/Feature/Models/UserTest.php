@@ -16,3 +16,6 @@ test('it can create a user', function () {
     expect($user->name)->toBe('John Doe');
     expect($user->email)->toBe('john@xxx');
 });
+
+
+// scopes
