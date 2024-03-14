@@ -29,7 +29,7 @@ class AttachmentFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             $file = file_get_contents('https://picsum.photos/200/300');
-            $path = 'attachments/' . $this->faker->uuid . '.jpg';
+            $path = 'attachments/'.$this->faker->uuid.'.jpg';
             Storage::disk('public')->put($path, $file);
 
             return ['file_path' => $path];
@@ -40,8 +40,9 @@ class AttachmentFactory extends Factory
     public function withNullFile(): self
     {
         return $this->state(function (array $attributes) {
-            $path = 'attachments/' . $this->faker->uuid . '.jpg';
+            $path = 'attachments/'.$this->faker->uuid.'.jpg';
             Storage::disk('public')->put($path, '');
+
             return ['file_path' => $path];
         });
     }

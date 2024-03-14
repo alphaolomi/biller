@@ -3,9 +3,9 @@
 use App\Models\Attachment;
 use App\Models\Bill;
 use App\Models\User;
-use Laravel\Sanctum\Sanctum;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Sanctum\Sanctum;
 
 beforeEach(function () {
     // Create a bill for testing
@@ -27,18 +27,16 @@ test('can retrieve all attachments for a bill', function () {
             'data' => [
                 '*' => [
                     // Attributes based on AttachmentResource
-                ]
+                ],
             ],
             'links', 'meta',
         ]);
 });
 
-
 test('can store a new attachment for a bill', function () {
     Storage::fake();
 
     $file = UploadedFile::fake()->image('receipt.jpg');
-
 
     $bill = Bill::factory()->create();
     $attachmentData = [
@@ -53,10 +51,9 @@ test('can store a new attachment for a bill', function () {
         ->assertJsonStructure([
             'data' => [
                 // Attributes based on AttachmentResource
-            ]
+            ],
         ]);
 });
-
 
 test('can show a specific attachment', function () {
     $attachment = Attachment::factory()->forBill()->withNullFile()->create();
@@ -68,10 +65,9 @@ test('can show a specific attachment', function () {
             'data' => [
                 'id' => $attachment->id,
                 // Other attributes from AttachmentResource
-            ]
+            ],
         ]);
 });
-
 
 test('can update a specific attachment', function () {
     $attachment = Attachment::factory()->forBill()->withNullFile()->create();
@@ -86,10 +82,9 @@ test('can update a specific attachment', function () {
             'data' => [
                 'id' => $attachment->id,
                 // Updated attributes
-            ]
+            ],
         ]);
 });
-
 
 test('can destroy a specific attachment', function () {
     $attachment = Attachment::factory()->forBill()->withNullFile()->create();
