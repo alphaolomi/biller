@@ -27,7 +27,7 @@ class Bill extends Model
         return $this->belongsTo(House::class);
     }
 
-    public function attachments() : HasMany
+    public function attachments(): HasMany
     {
         return $this->hasMany(Attachment::class);
     }

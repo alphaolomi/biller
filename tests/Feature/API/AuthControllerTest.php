@@ -1,10 +1,7 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
-
-
 
 beforeEach(function () {
     // Create a user to test authentication
@@ -22,17 +19,17 @@ test('users can login', function () {
     ]);
 
     $response->assertStatus(200)
-             ->assertJsonStructure(['user', 'token']);
+        ->assertJsonStructure(['user', 'token']);
 });
 
 test('users can logout', function () {
     $token = $this->user->createToken('testToken')->plainTextToken;
 
-    $response = $this->withHeader('Authorization', 'Bearer ' . $token)
-                     ->postJson('/api/auth/logout');
+    $response = $this->withHeader('Authorization', 'Bearer '.$token)
+        ->postJson('/api/auth/logout');
 
     $response->assertStatus(200)
-             ->assertJson(['message' => 'Logged out']);
+        ->assertJson(['message' => 'Logged out']);
 });
 
 test('users can logout from all devices', function () {
@@ -40,8 +37,8 @@ test('users can logout from all devices', function () {
     $this->user->createToken('testToken2');
 
     $response = $this->actingAs($this->user)
-                     ->postJson('/api/logoutFromAllDevices');
+        ->postJson('/api/logoutFromAllDevices');
 
     $response->assertStatus(200)
-             ->assertJson(['message' => 'Logged out from all devices']);
+        ->assertJson(['message' => 'Logged out from all devices']);
 })->skip('This test is skipped because the route is not implemented yet');

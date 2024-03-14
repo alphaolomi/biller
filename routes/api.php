@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\HouseBillController;
-use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BillAttachmentController;
+use App\Http\Controllers\Api\HouseBillController;
 use App\Http\Controllers\Api\HouseController;
+use App\Http\Controllers\Api\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/auth/login', [AuthController::class, 'login'])->name('auth.login');

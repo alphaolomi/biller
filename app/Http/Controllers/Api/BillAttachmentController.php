@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Attachment;
 use App\Http\Requests\StoreAttachmentRequest;
 use App\Http\Requests\UpdateAttachmentRequest;
 use App\Http\Resources\AttachmentResource;
+use App\Models\Attachment;
 use App\Models\Bill;
 
 class BillAttachmentController extends Controller
 {
-
     public function index(Bill $bill)
     {
         $attachments = $bill->attachments()->paginate(10);
@@ -30,7 +29,6 @@ class BillAttachmentController extends Controller
     {
         return new AttachmentResource($attachment);
     }
-
 
     public function update(UpdateAttachmentRequest $request, Attachment $attachment)
     {
