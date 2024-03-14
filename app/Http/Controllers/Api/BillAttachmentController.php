@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAttachmentRequest;
-use App\Http\Requests\UpdateAttachmentRequest;
+use App\Http\Requests\Api\StoreAttachmentRequest;
+use App\Http\Requests\Api\UpdateAttachmentRequest;
 use App\Http\Resources\AttachmentResource;
 use App\Models\Attachment;
 use App\Models\Bill;
@@ -20,6 +20,10 @@ class BillAttachmentController extends Controller
 
     public function store(StoreAttachmentRequest $request, Bill $bill)
     {
+        $file_path = $request->file('file')->store('attachments');
+
+        $request->merge(['file_path' => $file_path]);
+
         $attachment = $bill->attachments()->create($request->all());
 
         return new AttachmentResource($attachment);

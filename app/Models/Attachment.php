@@ -9,7 +9,7 @@ class Attachment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['bill_id', 'file_path'];
+    protected $fillable = ['name', 'bill_id', 'file_path'];
 
     // Relationships
     public function bill()
