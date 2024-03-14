@@ -1,10 +1,7 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
-
-
 
 beforeEach(function () {
     // Create a user to test authentication
@@ -37,28 +34,23 @@ test('users cannot login with incorrect credentials', function () {
 test('users can logout', function () {
     $token = $this->user->createToken('testToken')->plainTextToken;
 
-    $response = $this->withHeader('Authorization', 'Bearer ' . $token)
+    $response = $this->withHeader('Authorization', 'Bearer '.$token)
         ->postJson('/api/auth/logout');
 
     $response->assertStatus(200)
         ->assertJson(['message' => 'Logged out']);
 });
 
-
-
 test('users can logout a token', function () {
     $token = $this->user->createToken('testToken')->plainTextToken;
     $this->user->createToken('testToken2');
 
-    $response = $this->withHeader('Authorization', 'Bearer ' . $token)
+    $response = $this->withHeader('Authorization', 'Bearer '.$token)
         ->postJson('/api/auth/logout', ['token' => 'testToken2']);
 
     $response->assertStatus(200)
         ->assertJson(['message' => 'Logged out']);
 });
-
-
-
 
 test('users can logout from all devices', function () {
     $this->user->createToken('testToken1');

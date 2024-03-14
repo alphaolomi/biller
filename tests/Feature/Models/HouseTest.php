@@ -11,7 +11,7 @@ test('it can create a house', function () {
     $house = House::create([
         'name' => 'Kimara',
         'address' => 'Kimara, Dar es Salaam',
-        'description' => 'A nice place to live'
+        'description' => 'A nice place to live',
     ]);
     expect($house->name)->toBe('Kimara');
     expect($house->address)->toBe('Kimara, Dar es Salaam');

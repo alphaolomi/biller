@@ -18,7 +18,7 @@ test('it can create a bill', function () {
         'currency' => 'TZS',
         'due_date' => now(),
         'type' => 'electricity',
-        'shared' => false
+        'shared' => false,
     ]);
 
     expect($bill->house_id)->toBe(1);

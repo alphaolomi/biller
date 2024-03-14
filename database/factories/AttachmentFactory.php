@@ -19,7 +19,7 @@ class AttachmentFactory extends Factory
     {
         return [
             'bill_id' => \App\Models\Bill::factory(),
-            'file_path' => null
+            'file_path' => null,
         ];
     }
 
@@ -28,8 +28,9 @@ class AttachmentFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             $file = file_get_contents('https://picsum.photos/200/300');
-            $path = 'attachments/' . $this->faker->uuid . '.jpg';
+            $path = 'attachments/'.$this->faker->uuid.'.jpg';
             Storage::disk('public')->put($path, $file);
+
             return ['file_path' => $path];
         });
     }
