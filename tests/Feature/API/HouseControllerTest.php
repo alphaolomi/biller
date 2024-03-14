@@ -21,7 +21,7 @@ test('can return a paginated list of houses', function () {
     $response->assertStatus(200)
         ->assertJsonStructure([
             'data' => [
-                '*' => ['id', 'address', 'name', 'description']
+                '*' => ['id', 'address', 'name', 'description'],
             ],
             'links', 'meta',
         ]);
@@ -35,7 +35,7 @@ test('can store a new house', function () {
 
     $response->assertStatus(201)
         ->assertJsonStructure([
-            'data' => ['id', 'name', 'address', 'description']
+            'data' => ['id', 'name', 'address', 'description'],
         ]);
 
     $this->assertDatabaseHas('houses', ['address' => '123 Main St']);
@@ -52,7 +52,7 @@ test('can show a house', function () {
                 'id' => $house->id,
                 'address' => $house->address,
                 // Include assertions for other fields
-            ]
+            ],
         ]);
 });
 
@@ -73,14 +73,14 @@ test('can update a house', function () {
                 'address' => 'Updated Address',
                 'name' => 'Updated Name',
                 'description' => 'Updated Description',
-            ]
+            ],
         ]);
 
     $this->assertDatabaseHas('houses', [
         'id' => $house->id,
         'address' => 'Updated Address',
         'name' => 'Updated Name',
-        'description' => 'Updated Description'
+        'description' => 'Updated Description',
     ]);
 });
 

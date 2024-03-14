@@ -1,10 +1,9 @@
 <?php
 
-use App\Models\House;
 use App\Models\Bill;
+use App\Models\House;
 use App\Models\User;
 use Laravel\Sanctum\Sanctum;
-
 
 beforeEach(function () {
     // Create a house and associated bills for testing
@@ -26,7 +25,7 @@ test('can list bills for a house', function () {
     $response->assertStatus(200)
         ->assertJsonStructure([
             'data' => [
-                '*' => ['id', 'amount', 'due_date',]
+                '*' => ['id', 'amount', 'due_date'],
             ],
             'links',
         ]);
@@ -39,7 +38,7 @@ test('can store a new bill for a house', function () {
 
     $response->assertStatus(201)
         ->assertJsonStructure([
-            'data' => ['id', 'amount', 'due_date'] // Adjust based on BillResource
+            'data' => ['id', 'amount', 'due_date'], // Adjust based on BillResource
         ]);
 
     $this->assertDatabaseHas('bills', [
@@ -56,10 +55,9 @@ test('can show a specific bill for a house', function () {
             'data' => [
                 'id' => $this->bill->id,
                 // Include other bill attributes in assertion
-            ]
+            ],
         ]);
 });
-
 
 test('can update a bill for a house', function () {
     $updateData = [
@@ -74,7 +72,7 @@ test('can update a bill for a house', function () {
                 'id' => $this->bill->id,
                 'amount' => 300,
                 // Assert other updated fields if necessary
-            ]
+            ],
         ]);
 
     $this->assertDatabaseHas('bills', ['id' => $this->bill->id, 'amount' => 300]);

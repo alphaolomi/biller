@@ -3,7 +3,6 @@
 use App\Utils\FileUtil;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 beforeEach(function () {
     Storage::fake('local');

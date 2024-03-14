@@ -6,7 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreHouseRequest extends FormRequest
 {
-
     /**
      * Get the validation rules that apply to the request.
      *
