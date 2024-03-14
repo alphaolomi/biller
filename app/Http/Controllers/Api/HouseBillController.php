@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\BillResource;
 use App\Models\House;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class HouseBillController extends Controller
 {
@@ -14,7 +15,14 @@ class HouseBillController extends Controller
      */
     public function index(House $house)
     {
-        $bill = $house->bills()->paginate(10);
+        $user = auth()->user();
+
+        Gate::authorize('viewAny', [$house, $user]);
+
+        $bill = $house->bills()
+            ->with('attachments')
+            ->where('user_id', $user->id)
+            ->paginate(10);
 
         return new BillResource($bill);
     }
@@ -24,6 +32,11 @@ class HouseBillController extends Controller
      */
     public function store(House $house, Request $request)
     {
+
+        $user = auth()->user();
+
+        Gate::authorize('create', [$house, $user]);
+
         $bill = $house->bills()->create($request->all());
 
         return new BillResource($bill);
@@ -34,6 +47,11 @@ class HouseBillController extends Controller
      */
     public function show(House $house, string $id)
     {
+
+        $user = auth()->user();
+
+        Gate::authorize('view', [$house, $user]);
+
         $bill = $house->bills()->findOrFail($id);
 
         return new BillResource($bill);
@@ -44,6 +62,11 @@ class HouseBillController extends Controller
      */
     public function update(Request $request, House $house, string $id)
     {
+
+        $user = auth()->user();
+
+        Gate::authorize('update', [$house, $user]);
+
         $bill = $house->bills()->findOrFail($id);
         $bill->update($request->all());
 
@@ -55,6 +78,11 @@ class HouseBillController extends Controller
      */
     public function destroy(House $house, string $id)
     {
+
+        $user = auth()->user();
+
+        Gate::authorize('delete', [$house, $user]);
+
         $bill = $house->bills()->findOrFail($id);
         $bill->delete();
 

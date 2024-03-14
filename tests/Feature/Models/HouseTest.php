@@ -19,7 +19,7 @@ test('it can create a house', function () {
 
     // # Relations
     // users
-    // expect($house->users)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class);
+    expect($house->user)->toBeInstanceOf(\App\Models\User::class);
 
     // bills
     expect($house->bills)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class);

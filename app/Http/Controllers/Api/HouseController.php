@@ -13,9 +13,13 @@ class HouseController extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
+
         Gate::authorize('viewAny', House::class);
 
-        $houses = House::paginate(10);
+        $houses = House::query()
+            ->where('user_id', $user->id)
+            ->paginate(10);
 
         return HouseResource::collection($houses);
     }
@@ -25,7 +29,7 @@ class HouseController extends Controller
         Gate::authorize('create', House::class);
 
         $data = $request->validated();
-        
+
         $data['user_id'] = auth()->id();
 
         $house = House::create($data);
