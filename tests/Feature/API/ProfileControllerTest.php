@@ -19,10 +19,10 @@ test('profile can be shown', function () {
     $response = getJson('/api/auth/profile');
 
     $response->assertStatus(200);
-        // ->assertJson([
-        //     'id' => $this->user->id,
-        //     'name' => 'Original Name',
-        // ])
+    // ->assertJson([
+    //     'id' => $this->user->id,
+    //     'name' => 'Original Name',
+    // ])
 });
 
 test('profile can be updated', function () {

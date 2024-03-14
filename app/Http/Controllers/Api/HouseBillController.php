@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BillResource;
-use Illuminate\Http\Request;
 use App\Models\House;
+use Illuminate\Http\Request;
 
 class HouseBillController extends Controller
 {
@@ -18,8 +18,6 @@ class HouseBillController extends Controller
 
         return new BillResource($bill);
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -40,7 +38,6 @@ class HouseBillController extends Controller
 
         return new BillResource($bill);
     }
-
 
     /**
      * Update the specified resource in storage.
