@@ -17,7 +17,13 @@ class BillFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'house_id' => \App\Models\House::factory(),
+            'description' => $this->faker->sentence(),
+            'amount' => $this->faker->randomFloat(2, 1, 1000),
+            'currency' => $this->faker->randomElement(['USD', 'TZS', 'KES']),
+            'due_date' => $this->faker->dateTimeBetween('now', '+1 year'),
+            'type' => $this->faker->randomElement(['rent', 'utilities', 'taxes', 'other']),
+            'shared' => $this->faker->boolean(),
         ];
     }
 }

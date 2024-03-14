@@ -17,7 +17,9 @@ class HouseFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->city() . ' House',
+            'address' => $this->faker->address(),
+            'description' => $this->faker->sentence()
         ];
     }
 }
