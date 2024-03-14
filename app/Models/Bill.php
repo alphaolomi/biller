@@ -11,9 +11,6 @@ class Bill extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array<string>
-     */
     protected $fillable = ['house_id', 'description', 'amount', 'currency', 'due_date', 'type', 'shared'];
 
     /**

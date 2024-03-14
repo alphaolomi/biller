@@ -54,10 +54,4 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $query->where('status', 'active');
     }
-
-    // Helper Function
-    public function isAdmin(): bool
-    {
-        return $this->role === 'admin';
-    }
 }

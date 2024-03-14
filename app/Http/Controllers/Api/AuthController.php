@@ -54,7 +54,10 @@ class AuthController extends Controller
             $request->user()->tokens()->where('id', $validated['token_id'])->delete();
         } else {
             // Revoke the token that was used to authenticate the current request...
-            $request->user()->currentAccessToken()->delete();
+            /** @var \Laravel\Sanctum\PersonalAccessToken $accessToken */
+            $accessToken = $request->user()->currentAccessToken();
+
+            $accessToken->delete();
         }
 
         return response([

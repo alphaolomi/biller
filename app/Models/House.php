@@ -11,13 +11,8 @@ class House extends Model
 {
     use HasFactory;
 
-
-    /**
-     * @var array<string>
-     */
     protected $fillable = ['name', 'address', 'description'];
 
-    // Relationships
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
