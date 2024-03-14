@@ -20,6 +20,8 @@ class HouseFactory extends Factory
             'name' => $this->faker->city().' House',
             'address' => $this->faker->address(),
             'description' => $this->faker->sentence(),
+            'status' => 'active',
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

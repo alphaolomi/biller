@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -43,15 +44,22 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    // Relationships
-    public function houses(): BelongsToMany
+    // // Relationships
+    public function houses(): HasMany
     {
-        return $this->belongsToMany(House::class);
+        return $this->hasMany(House::class);
     }
 
     // Example Scope
     public function scopeActive(Builder $query): Builder
     {
         return $query->where('status', 'active');
+    }
+
+
+    // isAdministrator
+    public function isAdministrator(): bool
+    {
+        return $this->role === 'admin';
     }
 }

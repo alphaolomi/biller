@@ -8,7 +8,7 @@ test('it can instantiate a user', function () {
 });
 
 test('it can create a house', function () {
-    $house = House::create([
+    $house = House::factory()->create([
         'name' => 'Kimara',
         'address' => 'Kimara, Dar es Salaam',
         'description' => 'A nice place to live',
@@ -16,4 +16,11 @@ test('it can create a house', function () {
     expect($house->name)->toBe('Kimara');
     expect($house->address)->toBe('Kimara, Dar es Salaam');
     expect($house->description)->toBe('A nice place to live');
+
+    // # Relations
+    // users
+    // expect($house->users)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class);
+
+    // bills
+    expect($house->bills)->toBeInstanceOf(\Illuminate\Database\Eloquent\Collection::class);
 });

@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->text('description')->nullable();
+            $table->string('status')->default('active'); // ['active', 'inactive']
+            $table->foreignId('user_id')->constrained();
+            
             $table->timestamps();
         });
     }
