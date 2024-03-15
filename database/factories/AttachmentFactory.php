@@ -25,7 +25,7 @@ class AttachmentFactory extends Factory
     }
 
     // download the file from the internet and save it to the storage
-    public function withFile(): self
+    public function withRealFile(): self
     {
         return $this->state(function (array $attributes) {
             $file = file_get_contents('https://picsum.photos/200/300');
@@ -38,6 +38,16 @@ class AttachmentFactory extends Factory
 
     // withNullFile
     public function withNullFile(): self
+    {
+        return $this->state(function (array $attributes) {
+            $path = 'attachments/'.$this->faker->uuid.'.jpg';
+            Storage::disk('public')->put($path, '');
+
+            return ['file_path' => $path];
+        });
+    }
+
+    public function withFile(): self
     {
         return $this->state(function (array $attributes) {
             $path = 'attachments/'.$this->faker->uuid.'.jpg';
