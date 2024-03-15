@@ -18,4 +18,25 @@ test('it can create a user', function () {
 });
 
 
+// # scopes and relationships
 // scopes
+test('it has a scope to get all active users', function () {
+    $user = User::factory()->create(['status' => 'active']);
+    $inactiveUser = User::factory()->create(['status' => 'inactive']);
+    $users = User::active()->get();
+    expect($users->count())->toBe(1);
+    expect($users->first()->id)->toBe($user->id);
+});
+
+// relationships
+test('user has houses', function () {
+    $user = User::factory()->hasHouses(3)->create();
+    expect($user->houses->count())->toBe(3);
+});
+
+// functional tests
+test('it isAdmin', function () {
+    $user = User::factory()->create(['role' => 'admin']);
+
+    expect($user->isAdministrator())->toBeTrue();
+});
