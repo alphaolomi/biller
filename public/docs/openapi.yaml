@@ -26,15 +26,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: wglover@example.com
+                  example: zelda.haley@example.org
                 password:
                   type: string
                   description: ''
-                  example: voluptas
+                  example: doloribus
                 device_name:
                   type: string
                   description: ''
-                  example: maiores
+                  example: vitae
               required:
                 - email
                 - password
@@ -58,7 +58,7 @@ paths:
                 token_id:
                   type: string
                   description: ''
-                  example: asperiores
+                  example: in
       security: []
   /api/auth/logout-all:
     post:
@@ -110,7 +110,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: eos
+                  example: est
       security: []
   /api/me/houses:
     get:
@@ -152,15 +152,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: cbpyvncjutjslsxoxsta
+                  example: haekvjhsnbmdorw
                 address:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: hphzececvznnfdkcoqvjd
+                  example: efobkbh
                 description:
                   type: string
                   description: ''
-                  example: 'Est nulla rerum quibusdam illum perspiciatis velit laboriosam.'
+                  example: 'Dolorum quo numquam beatae magni eius et.'
               required:
                 - name
                 - address
@@ -205,15 +205,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: vbatpdrzrnxqjdawt
+                  example: yiywzaidozwwkqxgnviejjw
                 address:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: oesqvblbmysbaauimjlsepswm
+                  example: oicbesikbhwqeyoegmmfw
                 description:
                   type: string
                   description: ''
-                  example: 'Libero tempore dolore facere sit.'
+                  example: 'Adipisci quos maiores officiis non est nihil.'
       security: []
     delete:
       summary: ''
@@ -229,7 +229,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the house.'
-        example: 4
+        example: 8
         required: true
         schema:
           type: integer
@@ -269,7 +269,7 @@ paths:
         in: path
         name: house_id
         description: 'The ID of the house.'
-        example: 5
+        example: 6
         required: true
         schema:
           type: integer
@@ -318,7 +318,7 @@ paths:
         in: path
         name: house_id
         description: 'The ID of the house.'
-        example: 7
+        example: 12
         required: true
         schema:
           type: integer
@@ -326,7 +326,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the bill.'
-        example: laudantium
+        example: adipisci
         required: true
         schema:
           type: string
@@ -370,7 +370,7 @@ paths:
                 bill_id:
                   type: string
                   description: ''
-                  example: iusto
+                  example: est
                 file:
                   type: string
                   format: binary
@@ -384,7 +384,7 @@ paths:
         in: path
         name: bill_id
         description: 'The ID of the bill.'
-        example: 2
+        example: 3
         required: true
         schema:
           type: integer

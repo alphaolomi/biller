@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "6b241825-23a9-4e36-af7d-bb9f2dcbcfa8",
+        "_postman_id": "2008cd49-36e2-49cf-a9c5-48279d433767",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"wglover@example.com\",\"password\":\"voluptas\",\"device_name\":\"maiores\"}"
+                            "raw": "{\"email\":\"zelda.haley@example.org\",\"password\":\"doloribus\",\"device_name\":\"vitae\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token_id\":\"asperiores\"}"
+                            "raw": "{\"token_id\":\"in\"}"
                         },
                         "description": "",
                         "auth": {
@@ -179,7 +179,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"eos\"}"
+                            "raw": "{\"name\":\"est\"}"
                         },
                         "description": "",
                         "auth": {
@@ -258,7 +258,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"cbpyvncjutjslsxoxsta\",\"address\":\"hphzececvznnfdkcoqvjd\",\"description\":\"Est nulla rerum quibusdam illum perspiciatis velit laboriosam.\"}"
+                            "raw": "{\"name\":\"haekvjhsnbmdorw\",\"address\":\"efobkbh\",\"description\":\"Dolorum quo numquam beatae magni eius et.\"}"
                         },
                         "description": "",
                         "auth": {
@@ -279,7 +279,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "4",
+                                    "value": "8",
                                     "description": "The ID of the house."
                                 }
                             ]
@@ -335,7 +335,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "19",
+                                    "value": "20",
                                     "description": "The ID of the house."
                                 }
                             ]
@@ -353,7 +353,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"vbatpdrzrnxqjdawt\",\"address\":\"oesqvblbmysbaauimjlsepswm\",\"description\":\"Libero tempore dolore facere sit.\"}"
+                            "raw": "{\"name\":\"yiywzaidozwwkqxgnviejjw\",\"address\":\"oicbesikbhwqeyoegmmfw\",\"description\":\"Adipisci quos maiores officiis non est nihil.\"}"
                         },
                         "description": "",
                         "auth": {
@@ -374,7 +374,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "9",
+                                    "value": "4",
                                     "description": "The ID of the house."
                                 }
                             ]
@@ -410,7 +410,7 @@
                                 {
                                     "id": "house_id",
                                     "key": "house_id",
-                                    "value": "5",
+                                    "value": "6",
                                     "description": "The ID of the house."
                                 }
                             ]
@@ -466,7 +466,7 @@
                                 {
                                     "id": "house_id",
                                     "key": "house_id",
-                                    "value": "16",
+                                    "value": "18",
                                     "description": "The ID of the house."
                                 }
                             ]
@@ -502,13 +502,13 @@
                                 {
                                     "id": "house_id",
                                     "key": "house_id",
-                                    "value": "7",
+                                    "value": "12",
                                     "description": "The ID of the house."
                                 },
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "laudantium",
+                                    "value": "adipisci",
                                     "description": "The ID of the bill."
                                 }
                             ]
@@ -564,13 +564,13 @@
                                 {
                                     "id": "house_id",
                                     "key": "house_id",
-                                    "value": "7",
+                                    "value": "8",
                                     "description": "The ID of the house."
                                 },
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "quasi",
+                                    "value": "vero",
                                     "description": "The ID of the bill."
                                 }
                             ]
@@ -606,13 +606,13 @@
                                 {
                                     "id": "house_id",
                                     "key": "house_id",
-                                    "value": "6",
+                                    "value": "19",
                                     "description": "The ID of the house."
                                 },
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "error",
+                                    "value": "veritatis",
                                     "description": "The ID of the bill."
                                 }
                             ]
@@ -648,7 +648,7 @@
                                 {
                                     "id": "bill_id",
                                     "key": "bill_id",
-                                    "value": "2",
+                                    "value": "3",
                                     "description": "The ID of the bill."
                                 }
                             ]
@@ -704,7 +704,7 @@
                                 {
                                     "id": "bill_id",
                                     "key": "bill_id",
-                                    "value": "1",
+                                    "value": "3",
                                     "description": "The ID of the bill."
                                 }
                             ]
@@ -725,7 +725,7 @@
                             "formdata": [
                                 {
                                     "key": "bill_id",
-                                    "value": "iusto",
+                                    "value": "est",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -811,7 +811,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "10",
+                                    "value": "13",
                                     "description": "The ID of the attachment."
                                 }
                             ]
@@ -861,7 +861,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "8",
                                     "description": "The ID of the attachment."
                                 }
                             ]
