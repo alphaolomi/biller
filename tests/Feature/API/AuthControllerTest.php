@@ -46,7 +46,7 @@ test('users can logout a token', function () {
     $this->user->createToken('testToken2');
 
     $response = $this->withHeader('Authorization', 'Bearer '.$token)
-        ->postJson('/api/auth/logout', ['token' => 'testToken2']);
+        ->postJson('/api/auth/logout', ['token_id' => 'testToken2']);
 
     $response->assertStatus(200)
         ->assertJson(['message' => 'Logged out']);
