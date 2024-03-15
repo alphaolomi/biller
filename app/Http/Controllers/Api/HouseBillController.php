@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\StoreBillRequest;
+use App\Http\Requests\Api\UpdateBillRequest;
 use App\Http\Resources\BillResource;
 use App\Models\House;
 use Illuminate\Http\Request;
@@ -30,7 +32,7 @@ class HouseBillController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(House $house, Request $request)
+    public function store(House $house, StoreBillRequest $request)
     {
 
         $user = auth()->user();
@@ -60,7 +62,7 @@ class HouseBillController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, House $house, string $id)
+    public function update(UpdateBillRequest $request, House $house, string $id)
     {
 
         $user = auth()->user();

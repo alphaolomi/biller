@@ -36,6 +36,8 @@ test('can store a new bill for a house', function () {
 
     $response = $this->postJson("/api/me/houses/{$this->house->id}/bills", $billData);
 
+    // expect($response)->dd();
+
     $response->assertStatus(201)
         ->assertJsonStructure([
             'data' => ['id', 'amount', 'due_date'], // Adjust based on BillResource
