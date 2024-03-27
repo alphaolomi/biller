@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();
             $table->timestamp('last_login_at')->nullable();
+
+            //
+            $table->boolean('beta_tester')->default(false);
             //
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
