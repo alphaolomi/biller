@@ -5,7 +5,11 @@ use App\Http\Controllers\Api\BillAttachmentController;
 use App\Http\Controllers\Api\HouseBillController;
 use App\Http\Controllers\Api\HouseController;
 use App\Http\Controllers\Api\ProfileController;
+use App\Http\Controllers\Dev\TestWebhookController;
 use Illuminate\Support\Facades\Route;
+
+Route::post('/dev', TestWebhookController::class)->name('dev.test-webhook');
+
 
 Route::post('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 // Route::post('/register', [AuthController::class, 'register']);
@@ -18,4 +22,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::apiResource('houses.bills', HouseBillController::class);
         Route::apiResource('bills.attachments', BillAttachmentController::class)->shallow();
     });
+
+    // Dev routes
 });
